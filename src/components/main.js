@@ -5,7 +5,7 @@ import mainPic from "./style/img/main-pic.jpeg";
 
 function Main(props) {
   let navigate = useNavigate();
-  const [participated, setParticipated] = useState(0);
+
   return (
     <div className="wrap">
       <div className="container">
@@ -20,6 +20,17 @@ function Main(props) {
         <div>
           <img src={mainPic} alt="mainPic" />
         </div>
+        <div className="input-wrap">
+          <input
+            type="text"
+            value={props.username}
+            placeholder="별명을 입력해주세요."
+            onChange={(e) => {
+              props.setUsername(e.target.value);
+              console.log(props.username);
+            }}
+          />
+        </div>
         <div className="btn-container">
           <button
             className="main-btn"
@@ -29,12 +40,9 @@ function Main(props) {
               props.setSN(0);
               props.setTF(0);
               props.setJP(0);
-
-              setParticipated((cur) => cur + 1);
             }}
           >
             <p>테스트 시작하기</p>
-            <p>총 {participated}명이 참여했어요!</p>
           </button>
         </div>
       </div>

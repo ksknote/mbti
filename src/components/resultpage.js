@@ -273,6 +273,7 @@ function Resultpage(props) {
   return (
     <div className="container">
       <div id="result-container">
+        <div className="user-name">{props.username}님은</div>
         <div className="mbti-title">{data[props.MBTI].title}</div>
         <img src={data[props.MBTI].img} alt="mbti-img" />
         <div className="description-container">
