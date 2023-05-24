@@ -2,11 +2,68 @@
 
 .container {
   width: 400px;
-  height: 100vh;
+  height: auto;
   margin: 70px auto;
   font-family: "Noto Sans KR", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+}
+
+#result-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.mbti-title {
+  font-size: 27px;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+
+.description-container {
+  background-color: #f4f2ec;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 10px auto 30px auto;
+  text-align: start;
+}
+
+.description li + li {
+  padding-top: 10px;
+}
+.description li {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.description li::marker {
+  color: #e4a401;
+}
+
+.result-btn {
+  background-color: #f2ae00;
+  border: none;
+  width: 90%;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.retry {
+  background-color: white;
+  border: #f2ae00 2px solid;
+  color: #e4a401;
+}
+.share {
+  margin-top: 10px;
+}
+
+.link-icon {
+  width: 25px;
+  padding-right: 10px;
 }
