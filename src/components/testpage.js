@@ -1,3 +1,6 @@
+import "./style/testpage.css";
+import styled from "styled-components";
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -6,7 +9,7 @@ function Testpage(props) {
   let [num, setNum] = useState(1);
   let [data] = useState({
     1: {
-      ques: "주말이 되었다. 소중한 주말을 어떻게 보내볼까?",
+      ques: "주말이 되었다.\n소중한 주말을 어떻게 보내볼까?",
       ans1: "나가자! 집에만 있기에는 주말이 아까워",
       ans2: "포근한 침대에서 여유를 만끽해야지!",
     },
@@ -21,12 +24,12 @@ function Testpage(props) {
       ans2: "휴 드디어 집에간다. 재밌긴 했는데 그래도 집이 최고야",
     },
     4: {
-      ques: "오늘 꿈에서 술 먹고 있는데 두꺼비가 술집에 들어왔다. 두꺼비는 어떤 술을 마실까?",
+      ques: "오늘 꿈에서 술 먹고 있는데\n두꺼비가 술집에 들어왔다.",
       ans1: "두꺼비가 술집에 왜 들어가",
-      ans2: "두꺼비? 진로 시키지 않을까?",
+      ans2: "두꺼비는 진로 마시려나 ..?",
     },
     5: {
-      ques: "멍 때리고 있는데 친구가 말을 걸어온다. “너 뭐해 ?”",
+      ques: "멍 때리고 있는데 친구가 말을 걸어온다.\n“너 뭐해 ?”",
       ans1: "응? (꼬리에 꼬리를 무는 잡생각으로 현실을 잊었다.)",
       ans2: "응? (진짜 아무 생각 안하는 중)",
     },
@@ -36,17 +39,17 @@ function Testpage(props) {
       ans2: "멜로디가 좋네? 가사에 집중해본다.",
     },
     7: {
-      ques: "친구가 “나 꿈에서 손톱이 빠졌어. 진짜 너무 아팠어ㅠㅠㅠ” 라고 한다면? ",
+      ques: "친구가 “나 꿈에서 손톱이 빠졌어.\n진짜 너무 아팠어ㅠㅠㅠ” 라고 한다면? ",
       ans1: "꿈인데 왜 아파? 흉몽인가?",
       ans2: "헐ㅠㅠ 손톱이 빠졌다고 ? 으으 상상만해도 아파",
     },
     8: {
-      ques: "친구가 “오늘 기분 별론데 카페 가자 내가 살게” 라고 한다면?",
+      ques: "친구가\n“오늘 기분 별론데 카페 가자 내가 살게”\n라고 한다면?",
       ans1: "콜. 어디 카페?",
       ans2: "무슨 일 있어?",
     },
     9: {
-      ques: "친구가 약속 시간에 많이 늦었다. 내가 원하는 친구의 반응은?",
+      ques: "친구가 약속 시간에 많이 늦었다.\n내가 원하는 친구의 반응은?",
       ans1: "왜 늦었는지 구체적으로 납득 가능하게 설명",
       ans2: "늦어서 미안하다고 사과 먼저!",
     },
@@ -68,10 +71,14 @@ function Testpage(props) {
   });
 
   return (
-    <div>
-      <div>{num}번 문제</div>
-      <div>{data[num].ques}</div>
+    <div className="container">
+      <hr />
+      <QuestionIdx className="que-idx" idx={num}>
+        {num}
+      </QuestionIdx>
+      <h1 className="que">{data[num].ques}</h1>
       <button
+        className="test-btn"
         onClick={() => {
           setNum((num) => num + 1);
           if (num <= 3) {
@@ -91,6 +98,7 @@ function Testpage(props) {
         {data[num].ans1}
       </button>
       <button
+        className="test-btn"
         onClick={() => {
           setNum((num) => num + 1);
           if (num <= 3) {
@@ -114,3 +122,7 @@ function Testpage(props) {
 }
 
 export default Testpage;
+
+const QuestionIdx = styled.div`
+  left: ${(props) => (400 * (props.idx - 1)) / 12}px;
+`;
