@@ -75,10 +75,11 @@ function Testpage(props) {
       <div className="root">
         <div className="wrap">
           <div className="container">
-            <hr />
-            <QuestionIdx className="que-idx" idx={num}>
-              {num}
-            </QuestionIdx>
+            <div className="hr-div">
+              <QuestionIdx className="que-idx" idx={num}>
+                {num}
+              </QuestionIdx>
+            </div>
             <h1 className="que">{data[num].ques}</h1>
             <button
               className="test-btn"
@@ -130,5 +131,5 @@ function Testpage(props) {
 export default Testpage;
 
 const QuestionIdx = styled.div`
-  left: ${(props) => 50 + (400 * (props.idx - 1)) / 12}px;
+  left: ${(props) => (380 * (props.idx - 1)) / 12}px;
 `;
