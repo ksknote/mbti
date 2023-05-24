@@ -1,0 +1,12 @@
+@import "./fonts.css";
+
+.container {
+  width: 400px;
+  height: 100vh;
+  margin: 70px auto;
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}

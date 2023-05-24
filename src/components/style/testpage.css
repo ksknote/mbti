@@ -15,7 +15,7 @@ hr {
   border: none;
   height: 4px;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
   border-width: 3px;
   background-color: #ffdd88;
 }
@@ -39,6 +39,7 @@ hr {
   white-space: pre;
   text-align: center;
   margin-bottom: 70px;
+  height: 70px;
 }
 
 button.test-btn {
