@@ -71,52 +71,54 @@ function Testpage(props) {
   });
 
   return (
-    <div className="container">
-      <hr />
-      <QuestionIdx className="que-idx" idx={num}>
-        {num}
-      </QuestionIdx>
-      <h1 className="que">{data[num].ques}</h1>
-      <button
-        className="test-btn"
-        onClick={() => {
-          setNum((num) => num + 1);
-          if (num <= 3) {
-            props.setEI(props.EI + 1);
-          } else if (num >= 4 && num <= 6) {
-            props.setSN(props.SN + 1);
-          } else if (num >= 7 && num <= 9) {
-            props.setTF(props.TF + 1);
-          } else if (num >= 10 && num <= 12) {
-            props.setJP(props.JP + 1);
-          }
-          if (num === 12) {
-            navigate("/resultpage");
-          }
-        }}
-      >
-        {data[num].ans1}
-      </button>
-      <button
-        className="test-btn"
-        onClick={() => {
-          setNum((num) => num + 1);
-          if (num <= 3) {
-            props.setEI(props.EI - 1);
-          } else if (num >= 4 && num <= 6) {
-            props.setSN(props.SN - 1);
-          } else if (num >= 7 && num <= 9) {
-            props.setTF(props.TF - 1);
-          } else if (num >= 10 && num <= 12) {
-            props.setJP(props.JP - 1);
-          }
-          if (num === 12) {
-            navigate("/resultpage");
-          }
-        }}
-      >
-        {data[num].ans2}
-      </button>
+    <div className="wrap">
+      <div className="container">
+        <hr />
+        <QuestionIdx className="que-idx" idx={num}>
+          {num}
+        </QuestionIdx>
+        <h1 className="que">{data[num].ques}</h1>
+        <button
+          className="test-btn"
+          onClick={() => {
+            setNum((num) => num + 1);
+            if (num <= 3) {
+              props.setEI(props.EI + 1);
+            } else if (num >= 4 && num <= 6) {
+              props.setSN(props.SN + 1);
+            } else if (num >= 7 && num <= 9) {
+              props.setTF(props.TF + 1);
+            } else if (num >= 10 && num <= 12) {
+              props.setJP(props.JP + 1);
+            }
+            if (num === 12) {
+              navigate("/resultpage");
+            }
+          }}
+        >
+          {data[num].ans1}
+        </button>
+        <button
+          className="test-btn"
+          onClick={() => {
+            setNum((num) => num + 1);
+            if (num <= 3) {
+              props.setEI(props.EI - 1);
+            } else if (num >= 4 && num <= 6) {
+              props.setSN(props.SN - 1);
+            } else if (num >= 7 && num <= 9) {
+              props.setTF(props.TF - 1);
+            } else if (num >= 10 && num <= 12) {
+              props.setJP(props.JP - 1);
+            }
+            if (num === 12) {
+              navigate("/resultpage");
+            }
+          }}
+        >
+          {data[num].ans2}
+        </button>
+      </div>
     </div>
   );
 }

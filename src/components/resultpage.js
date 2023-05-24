@@ -271,44 +271,46 @@ function Resultpage(props) {
   let userMbti = props.MBTI;
   console.log(userMbti);
   return (
-    <div className="container">
-      <div id="result-container">
-        <div className="user-name">{props.username}님은</div>
-        <div className="mbti-title">{data[props.MBTI].title}</div>
-        <img src={data[props.MBTI].img} alt="mbti-img" />
-        <div className="description-container">
-          <ul className="description">
-            {data[props.MBTI].cont.map((data, idx) => (
-              <li key={idx}>{data}</li>
-            ))}
-          </ul>
+    <div className="wrap">
+      <div className="container">
+        <div id="result-container">
+          <div className="user-name">{props.username}님은</div>
+          <div className="mbti-title">{data[props.MBTI].title}</div>
+          <img src={data[props.MBTI].img} alt="mbti-img" />
+          <div className="description-container">
+            <ul className="description">
+              {data[props.MBTI].cont.map((data, idx) => (
+                <li key={idx}>{data}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-      <button
-        className="result-btn retry"
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        다시하기
-      </button>
+        <button
+          className="result-btn retry"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          다시하기
+        </button>
 
-      <button
-        href="#"
-        id="sns_urlCoby"
-        className="result-btn share"
-        title="새창"
-        onClick={(e) => {
-          clip();
-          return false;
-        }}
-      >
-        <img className="link-icon" src={linkIcon} alt="linkIcon" />
-        <p>이 테스트 공유하기</p>
-      </button>
-      <button className="result-btn download" onClick={() => onCapture()}>
-        결과 이미지 다운로드
-      </button>
+        <button
+          href="#"
+          id="sns_urlCoby"
+          className="result-btn share"
+          title="새창"
+          onClick={(e) => {
+            clip();
+            return false;
+          }}
+        >
+          <img className="link-icon" src={linkIcon} alt="linkIcon" />
+          <p>이 테스트 공유하기</p>
+        </button>
+        <button className="result-btn download" onClick={() => onCapture()}>
+          결과 이미지 다운로드
+        </button>
+      </div>
     </div>
   );
 }
