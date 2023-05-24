@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./style/resultpage.css";
+import html2canvas from "html2canvas";
 
 import ENTP from "./style/img/ENTP.jpg";
 import ENTJ from "./style/img/ENTJ.jpg";
@@ -17,6 +18,39 @@ import ISTP from "./style/img/ISTP.jpg";
 import ISTJ from "./style/img/ISTJ.jpg";
 import ISFP from "./style/img/ISFP.jpg";
 import ISFJ from "./style/img/ISFJ.jpg";
+import linkIcon from "./style/img/link-icon.png";
+
+function clip() {
+  // var url = "";
+  var textarea = document.createElement("textarea");
+
+  document.body.appendChild(textarea);
+  // url = window.document.location.href;
+  textarea.value = "https://mongry-mbti.netlify.app/";
+  textarea.select(); //textarea를 설정
+  console.log("텍스트에리아 선택완료!");
+  document.execCommand("copy");
+
+  document.body.removeChild(textarea);
+
+  alert("URL이 복사되었습니다.");
+}
+
+const onCapture = () => {
+  console.log("onCapture");
+  html2canvas(document.querySelector("#result-container")).then((canvas) => {
+    onSaveAs(canvas.toDataURL(), "image-download.png");
+  });
+};
+
+const onSaveAs = (uri, name) => {
+  console.log("onSaveAs");
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+};
 
 function Resultpage(props) {
   let data = {
@@ -72,7 +106,7 @@ function Resultpage(props) {
       img: ESTP,
     },
     ESTJ: {
-      title: "호불호가 확실한 고양이",
+      title: "호불호가 확실한 고양이🐱",
       cont: [
         "나에게 소중한 사람에게는 누구보다 잘해",
         "나의 일과 중 계획에 없는 건 없어",
@@ -238,21 +272,41 @@ function Resultpage(props) {
   console.log(userMbti);
   return (
     <div className="container">
-      <div>{data[props.MBTI].title}</div>
-      <img src={data[props.MBTI].img} alt="mbti-img" />
-      <div>
-        {data[props.MBTI].cont.map((data, idx) => (
-          <ul key={idx}>
-            <li>{data}</li>
+      <div id="result-container">
+        <div className="mbti-title">{data[props.MBTI].title}</div>
+        <img src={data[props.MBTI].img} alt="mbti-img" />
+        <div className="description-container">
+          <ul className="description">
+            {data[props.MBTI].cont.map((data, idx) => (
+              <li key={idx}>{data}</li>
+            ))}
           </ul>
-        ))}
+        </div>
       </div>
       <button
+        className="result-btn retry"
         onClick={() => {
           navigate("/");
         }}
       >
         다시하기
+      </button>
+
+      <button
+        href="#"
+        id="sns_urlCoby"
+        className="result-btn share"
+        title="새창"
+        onClick={(e) => {
+          clip();
+          return false;
+        }}
+      >
+        <img className="link-icon" src={linkIcon} alt="linkIcon" />
+        <p>이 테스트 공유하기</p>
+      </button>
+      <button className="result-btn download" onClick={() => onCapture()}>
+        결과 이미지 다운로드
       </button>
     </div>
   );
