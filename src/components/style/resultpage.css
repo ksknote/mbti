@@ -15,10 +15,15 @@
   padding: 20px;
 }
 
+.user-name {
+  font-weight: 600;
+  font-size: 19px;
+}
+
 .mbti-title {
   font-size: 27px;
   font-weight: 600;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .description-container {

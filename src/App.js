@@ -12,6 +12,7 @@ function App() {
   const [JP, setJP] = useState(0);
   let [datas, setDatas] = useState("");
   let [MBTI, setMBTI] = useState("");
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     let data = [];
@@ -57,7 +58,14 @@ function App() {
         <Route
           path="/"
           element={
-            <Main setEI={setEI} setSN={setSN} setTF={setTF} setJP={setJP} />
+            <Main
+              setEI={setEI}
+              setSN={setSN}
+              setTF={setTF}
+              setJP={setJP}
+              username={username}
+              setUsername={setUsername}
+            />
           }
         ></Route>
         <Route
@@ -75,7 +83,10 @@ function App() {
             />
           }
         ></Route>
-        <Route path="/resultpage" element={<Resultpage MBTI={MBTI} />}></Route>
+        <Route
+          path="/resultpage"
+          element={<Resultpage MBTI={MBTI} username={username} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
