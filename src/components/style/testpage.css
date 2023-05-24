@@ -1,0 +1,58 @@
+@import "./fonts.css";
+
+.container {
+  width: 400px;
+  height: 100vh;
+  margin: 70px auto;
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+hr {
+  border: none;
+  height: 4px;
+  width: 100%;
+  margin-bottom: 40px;
+  border-width: 3px;
+  background-color: #ffdd88;
+}
+
+.que-idx {
+  background-color: #f2ae00;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 35px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: -7.5px;
+}
+
+.que {
+  font-size: 20px;
+  white-space: pre;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+button.test-btn {
+  background-color: #e9a908;
+
+  border: none;
+  width: 400px;
+  height: 90px;
+  border-radius: 25px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+button + button {
+  margin-top: 12px;
+}

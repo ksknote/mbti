@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "./components/main";
@@ -9,8 +10,20 @@ function App() {
   const [SN, setSN] = useState(0);
   const [TF, setTF] = useState(0);
   const [JP, setJP] = useState(0);
-  let [datas, setDatas] = useState();
-  let [MBTI, setMBTI] = useState();
+  let [datas, setDatas] = useState("");
+  let [MBTI, setMBTI] = useState("");
+
+  useEffect(() => {
+    let data = [];
+
+    EI > 0 ? data.push("E") : data.push("I");
+    SN > 0 ? data.push("S") : data.push("N");
+    TF > 0 ? data.push("T") : data.push("F");
+    JP > 0 ? data.push("J") : data.push("P");
+
+    setDatas(data.join(""));
+    setMBTI(datas);
+  }, [EI, SN, TF, JP, datas]);
 
   useEffect(() => {
     let data = [];
