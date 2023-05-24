@@ -86,6 +86,7 @@ input {
   margin-top: 4px;
   border: none;
   outline: none;
+  background-color: transparent;
 }
 
 button.main-btn {
