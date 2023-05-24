@@ -131,5 +131,5 @@ function Testpage(props) {
 export default Testpage;
 
 const QuestionIdx = styled.div`
-  left: ${(props) => (380 * (props.idx - 1)) / 12}px;
+  left: ${(props) => (340 * (props.idx - 1)) / 12}px;
 `;
