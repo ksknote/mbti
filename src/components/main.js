@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/main.css";
 import mainPic from "./style/img/main-pic.jpeg";
 
 function Main(props) {
   let navigate = useNavigate();
+  let [showSmall, setShowSmall] = useState(false);
+  const validateNickName = () => {
+    if (props.username.length === 0) {
+      setShowSmall(true);
+    } else {
+      navigate("/testpage");
+      props.setEI(0);
+      props.setSN(0);
+      props.setTF(0);
+      props.setJP(0);
+    }
+  };
 
   return (
     <div className="body">
@@ -33,15 +45,13 @@ function Main(props) {
                 }}
               />
             </div>
+            {showSmall && <small>별명을 입력해주세요.</small>}
+
             <div className="btn-container">
               <button
                 className="main-btn"
                 onClick={() => {
-                  navigate("/testpage");
-                  props.setEI(0);
-                  props.setSN(0);
-                  props.setTF(0);
-                  props.setJP(0);
+                  validateNickName();
                 }}
               >
                 <p>테스트 시작하기</p>
